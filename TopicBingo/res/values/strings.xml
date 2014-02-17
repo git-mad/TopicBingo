@@ -12,5 +12,7 @@
     <string name="topic3">Curling</string>
     <string name="topic4">House of Cards spoilers</string>
     <string name="topic5">2 Chainz</string>
+    
+    <string name="max">5/5</string>
 
 </resources>
