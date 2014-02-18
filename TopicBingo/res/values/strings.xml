@@ -1,18 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-	<string name="app_name">TopicBingo</string>
-	<string name="action_settings">Settings</string>
-	<string name="hello_world">Hello world!</string>
+	<string name="app_name">Topic Bingo</string>
 	<string name="instructions_button">Instructions</string>
-	
+
 	<!-- Topics -->
 	<string name="topic1">Law and Order: SVU</string>
     <string name="topic2">Russian corruption</string>
     <string name="topic3">Curling</string>
     <string name="topic4">House of Cards spoilers</string>
     <string name="topic5">2 Chainz</string>
-    
+
     <string name="max">5/5</string>
 
 </resources>
