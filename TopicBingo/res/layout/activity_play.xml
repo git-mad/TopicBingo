@@ -21,8 +21,9 @@
 	        android:gravity="center"
 	        android:divider="@android:color/transparent"
 	        android:dividerHeight="0dp"
-	        android:cacheColorHint="#00000000"
+	        android:cacheColorHint="@android:color/transparent"
 	        android:scrollbars="none"
+	        android:listSelector="@android:color/transparent"
 	        android:choiceMode="singleChoice"/>
 
 		<!-- Bottom bar -->
