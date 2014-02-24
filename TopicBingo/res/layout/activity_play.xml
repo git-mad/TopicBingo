@@ -12,46 +12,19 @@
 		android:paddingRight="@dimen/activity_horizontal_margin"
 		android:paddingTop="@dimen/activity_top_margin"
 		android:orientation="vertical" >
-		
-		<!-- Five topics -->
-	
-		<TextView
-			android:layout_width="match_parent"
-			android:layout_height="wrap_content"
-			android:gravity="center"
-			android:textSize="24sp"
-			android:text="@string/topic1" />
-		
-		<TextView
+
+	    <!-- Topics -->
+		<org.gitmad.topicbingo.ExpandedListView
+	        android:id="@+id/topics_list"
 	        android:layout_width="match_parent"
 	        android:layout_height="wrap_content"
 	        android:gravity="center"
-	        android:textSize="24sp"
-	        android:text="@string/topic2" />
-		
-		<TextView
-	        android:layout_width="match_parent"
-	        android:layout_height="wrap_content"
-	        android:gravity="center"
-	        android:textSize="24sp"
-	        android:text="@string/topic3" />
-		
-		<TextView
-	        android:layout_width="match_parent"
-	        android:layout_height="wrap_content"
-	        android:gravity="center"
-	        android:textSize="24sp"
-	        android:text="@string/topic4" />
-		
-		<TextView
-	        android:layout_width="match_parent"
-	        android:layout_height="wrap_content"
-	        android:gravity="center"
-	        android:textSize="24sp"
-	        android:text="@string/topic5" />
-		
+	        android:divider="@android:color/transparent"
+	        android:dividerHeight="0dp"
+	        android:cacheColorHint="#00000000"
+	        android:scrollbars="none"/>
+
 		<!-- Bottom bar -->
-		
 	    <LinearLayout
 	        android:layout_width="match_parent"
 	        android:layout_height="wrap_content"
