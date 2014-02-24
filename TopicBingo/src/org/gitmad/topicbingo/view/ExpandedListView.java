@@ -1,4 +1,4 @@
-package org.gitmad.topicbingo;
+package org.gitmad.topicbingo.view;
 
 import android.content.Context;
 import android.graphics.Canvas;
