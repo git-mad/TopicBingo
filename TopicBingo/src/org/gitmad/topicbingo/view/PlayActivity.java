@@ -3,17 +3,21 @@ package org.gitmad.topicbingo.view;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.app.Activity;
+import android.app.ListActivity;
+import android.content.Intent;
 import android.view.Menu;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.TextView;
+import android.widget.Toast;
+
 import org.gitmad.topicbingo.R;
 import org.gitmad.topicbingo.TopicBingoApplication;
 import org.gitmad.topicbingo.model.DataModel;
 import org.gitmad.topicbingo.model.Topic;
 
-public class PlayActivity extends Activity {
+public class PlayActivity extends ListActivity {
 
 	private ListView mTopicsList;
     private DataModel model;
@@ -24,21 +28,15 @@ public class PlayActivity extends Activity {
 		setContentView(R.layout.activity_play);
         model = ((TopicBingoApplication)getApplication()).getModel();
 
-		mTopicsList = (ListView) findViewById(R.id.topics_list);
+		mTopicsList = (ListView) findViewById(android.R.id.list);
 		mTopicsList.setAdapter(new TopicArrayAdapter(this,
-      	        model.getCurrentTopics(), new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                if(v.getClass()==TextView.class)
-                {
-                    TextView tv = (TextView)v;
-                    tv.setTextColor(Color.GREEN);
-                }
-            }
-        }));
+      	        model.getCurrentTopics()));
+    }
 
-
-
+	@Override
+	public void onListItemClick(ListView l, View v, int position, long id) {
+        super.onListItemClick(l, v, position, id);
+    	Toast.makeText(this, ((TextView) v).getText(), Toast.LENGTH_SHORT).show();
     }
 
 	@Override

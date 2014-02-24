@@ -19,13 +19,11 @@ public class TopicArrayAdapter extends ArrayAdapter<Topic>
 {
     private final List<Topic> topics;
     private final Context context;
-    private final View.OnClickListener textListener;
-    public TopicArrayAdapter(Context context, List<Topic> topics, View.OnClickListener textListener)
+    public TopicArrayAdapter(Context context, List<Topic> topics)
     {
         super(context, R.layout.topics_list_item, topics);
         this.topics=topics;
         this.context=context;
-        this.textListener= textListener;
     }
     public View getView(int position, View convertView, ViewGroup parent)
     {
@@ -33,7 +31,6 @@ public class TopicArrayAdapter extends ArrayAdapter<Topic>
         View rowView = inflater.inflate(R.layout.topics_list_item, parent, false);
         TextView titleView = (TextView)rowView.findViewById(R.id.titleView);
         titleView.setText(topics.get(position).getName());
-        titleView.setOnClickListener(textListener);
         return rowView;
     }
 }

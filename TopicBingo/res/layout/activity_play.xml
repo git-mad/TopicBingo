@@ -15,14 +15,15 @@
 
 	    <!-- Topics -->
 		<org.gitmad.topicbingo.view.ExpandedListView
-	        android:id="@+id/topics_list"
+	        android:id="@android:id/list"
 	        android:layout_width="match_parent"
 	        android:layout_height="wrap_content"
 	        android:gravity="center"
 	        android:divider="@android:color/transparent"
 	        android:dividerHeight="0dp"
 	        android:cacheColorHint="#00000000"
-	        android:scrollbars="none"/>
+	        android:scrollbars="none"
+	        android:choiceMode="singleChoice"/>
 
 		<!-- Bottom bar -->
 	    <LinearLayout
