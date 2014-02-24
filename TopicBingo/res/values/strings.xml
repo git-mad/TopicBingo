@@ -5,11 +5,13 @@
 	<string name="instructions_button">Instructions</string>
 
 	<!-- Topics -->
-	<string name="topic1">Law and Order: SVU</string>
-    <string name="topic2">Russian corruption</string>
-    <string name="topic3">Curling</string>
-    <string name="topic4">House of Cards spoilers</string>
-    <string name="topic5">2 Chainz</string>
+    <string-array name="topics_array">
+        <item>Law and Order: SVU</item>
+        <item>Russian corruption</item>
+        <item>Curling</item>
+        <item>House of Cards spoilers</item>
+        <item>2 Chainz</item>
+    </string-array>
 
     <string name="max">5/5</string>
 
