@@ -34,8 +34,8 @@ public class PlayActivity extends ListActivity {
 
 	@Override
 	public void onListItemClick(ListView l, View v, int position, long id) {
-        super.onListItemClick(l, v, position + 1, id);
-        mMaxView.setText(getString(R.string.max, position, mNumTopics));
+        super.onListItemClick(l, v, position, id);
+        mMaxView.setText(getString(R.string.max, position + 1, mNumTopics));
     	Toast.makeText(this, ((TextView) v).getText(), Toast.LENGTH_SHORT).show();
     }
 
