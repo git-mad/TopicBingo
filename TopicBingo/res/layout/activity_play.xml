@@ -38,11 +38,11 @@
 	            android:layout_height="wrap_content"
 	            android:text="@string/instructions_button" />
 	        
-	        <TextView 
+	        <TextView
+	            android:id="@+id/max_textview"
 	            android:layout_width="match_parent"
 	            android:layout_height="wrap_content"
-	            android:gravity="right"
-	            android:text="@string/max" />
+	            android:gravity="right" />
 	        
 	    </LinearLayout>
 	

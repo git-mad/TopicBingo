@@ -29,7 +29,7 @@ public class TopicArrayAdapter extends ArrayAdapter<Topic>
     {
         View row = convertView;
         TopicHolder holder = null;
-        if(row == null) {
+        if (row == null) {
         	LayoutInflater inflater = (LayoutInflater)context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
             row = inflater.inflate(R.layout.topics_list_item, parent, false);
             holder = new TopicHolder();

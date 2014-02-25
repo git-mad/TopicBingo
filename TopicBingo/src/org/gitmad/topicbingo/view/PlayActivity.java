@@ -15,14 +15,18 @@ import org.gitmad.topicbingo.model.DataModel;
 public class PlayActivity extends ListActivity {
 
 	private ListView mTopicsList;
+	private TextView mMaxView;
     private DataModel model;
+	private int mNumTopics;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_play);
         model = ((TopicBingoApplication)getApplication()).getModel();
-
+        mMaxView = (TextView) findViewById(R.id.max_textview);
+        mNumTopics = model.getCurrentTopics().size();
+        mMaxView.setText(getString(R.string.max, 0, mNumTopics));
 		mTopicsList = (ListView) findViewById(android.R.id.list);
 		mTopicsList.setAdapter(new TopicArrayAdapter(this,
       	        model.getCurrentTopics()));
@@ -30,7 +34,8 @@ public class PlayActivity extends ListActivity {
 
 	@Override
 	public void onListItemClick(ListView l, View v, int position, long id) {
-        super.onListItemClick(l, v, position, id);
+        super.onListItemClick(l, v, position + 1, id);
+        mMaxView.setText(getString(R.string.max, position, mNumTopics));
     	Toast.makeText(this, ((TextView) v).getText(), Toast.LENGTH_SHORT).show();
     }
 

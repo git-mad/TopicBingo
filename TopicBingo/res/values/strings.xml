@@ -16,7 +16,7 @@
         <item>Dirty Dishes</item>
         <item>Nuclear Reactors</item>
         <item>Sarah Palin</item>
-        <item>The 800ln Gorilla in the Room</item>
+        <item>The 800lb Gorilla in the Room</item>
         <item>My Genital Warts</item>
         <item>Unforseeable car accidents</item>
         <item>Twitch plays pokemon</item>
@@ -35,11 +35,8 @@
         <item>Uncomfortable Silence</item>
         <item>Austin Powers</item>
         <item>The Spy Who Shagged Me</item>
-
-
-
     </string-array>
 
-    <string name="max">5/5</string>
+    <string name="max">%1$d/%2$d</string>
 
 </resources>
