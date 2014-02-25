@@ -6,9 +6,9 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.TextView;
+
 import org.gitmad.topicbingo.R;
 import org.gitmad.topicbingo.model.Topic;
-
 
 import java.util.List;
 
@@ -27,10 +27,22 @@ public class TopicArrayAdapter extends ArrayAdapter<Topic>
     }
     public View getView(int position, View convertView, ViewGroup parent)
     {
-        LayoutInflater inflater = (LayoutInflater)context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-        View rowView = inflater.inflate(R.layout.topics_list_item, parent, false);
-        TextView titleView = (TextView)rowView.findViewById(R.id.titleView);
-        titleView.setText(topics.get(position).getName());
-        return rowView;
+        View row = convertView;
+        TopicHolder holder = null;
+        if(row == null) {
+        	LayoutInflater inflater = (LayoutInflater)context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+            row = inflater.inflate(R.layout.topics_list_item, parent, false);
+            holder = new TopicHolder();
+            holder.topicName = (TextView) row.findViewById(R.id.titleView);
+            row.setTag(holder);
+        } else {
+            holder = (TopicHolder) row.getTag();
+        }
+        holder.topicName.setText(topics.get(position).getName());
+        return row;
+    }
+
+    private static class TopicHolder {
+    	private TextView topicName;
     }
 }
