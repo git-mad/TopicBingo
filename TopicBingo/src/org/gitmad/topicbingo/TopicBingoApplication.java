@@ -21,5 +21,6 @@ public class TopicBingoApplication extends Application
     public void onCreate() {
         super.onCreate();
         model = new DataModel(this);
+        ;
     }
 }
