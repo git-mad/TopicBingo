@@ -10,19 +10,26 @@ public class Topic
 
     public Topic(String name) {
         this.name = name;
-        checked=false;
+        checked = false;
     }
 
     public String getName() {
-
         return name;
     }
 
     public void setName(String name) {
         this.name = name;
     }
-    public String toString()
-    {
+
+    public boolean isChecked() {
+        return checked;
+    }
+
+    public void setChecked(boolean checked) {
+        this.checked = checked;
+    }
+
+    public String toString() {
         return name;
     }
 }

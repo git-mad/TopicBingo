@@ -38,7 +38,8 @@ public class TopicArrayAdapter extends ArrayAdapter<Topic>
         } else {
             holder = (TopicHolder) row.getTag();
         }
-        holder.topicName.setText(topics.get(position).getName());
+        Topic topic = topics.get(position);
+        holder.topicName.setText(topic.getName());
         return row;
     }
 
