@@ -8,9 +8,22 @@
 	android:paddingTop="@dimen/activity_top_margin"
 	tools:context=".PlayActivity" >
 
+    <!-- Topics -->
+	<ListView
+        android:id="@+id/topics_list"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:gravity="center"
+        android:divider="@android:color/transparent"
+        android:dividerHeight="0dp"
+        android:cacheColorHint="@android:color/transparent"
+        android:scrollbars="none"
+        android:listSelector="@android:color/transparent"
+        android:choiceMode="singleChoice"/>
+
 	<!-- Bottom bar -->
     <RelativeLayout
-        android:id="@+id/bottom_bar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="@dimen/activity_mid_margin"
@@ -31,19 +44,5 @@
             android:layout_alignParentRight="true" />
         
     </RelativeLayout>
-
-    <!-- Topics -->
-	<ListView
-        android:id="@+id/topics_list"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_centerInParent="true"
-        android:gravity="center"
-        android:divider="@android:color/transparent"
-        android:dividerHeight="0dp"
-        android:cacheColorHint="@android:color/transparent"
-        android:scrollbars="none"
-        android:listSelector="@android:color/transparent"
-        android:choiceMode="singleChoice"/>
 
 </RelativeLayout>
