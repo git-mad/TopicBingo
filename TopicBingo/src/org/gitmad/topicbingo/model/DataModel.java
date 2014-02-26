@@ -12,6 +12,7 @@ import java.util.Random;
  */
 public class DataModel
 {
+	private static final int NUM_TOPICS = 5;
     private Context context;
     private List<Topic> allTopics;
     private List<Topic> currentTopics;
@@ -35,7 +36,7 @@ public class DataModel
     {
         currentTopics.clear();
         Random random = new Random();
-        while(currentTopics.size()<5)
+        while(currentTopics.size()<NUM_TOPICS)
         {
             Topic t = allTopics.get(random.nextInt(allTopics.size()));
             if(!currentTopics.contains(t))
