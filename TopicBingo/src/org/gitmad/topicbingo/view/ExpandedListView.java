@@ -19,6 +19,7 @@ public class ExpandedListView extends ListView {
         if (getCount() != old_count) {
             old_count = getCount();
             params = getLayoutParams();
+            //NOTE : This assumes all list items have the same height at the first item.
             params.height = getCount() * (old_count > 0 ? getChildAt(0).getHeight() : 0);
             setLayoutParams(params);
         }
