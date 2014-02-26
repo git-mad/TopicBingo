@@ -45,7 +45,6 @@ public class PlayActivity extends Activity {
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_play);
-		mCurrentCheckedTopicIndex = -1;
         mModel = ((TopicBingoApplication)getApplication()).getModel();
         mMaxView = (TextView) findViewById(R.id.max_textview);
         mNumTopics = mModel.getCurrentTopics().size();

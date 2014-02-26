@@ -27,24 +27,26 @@
 	        android:choiceMode="singleChoice"/>
 
 		<!-- Bottom bar -->
-	    <LinearLayout
+	    <RelativeLayout
 	        android:layout_width="match_parent"
 	        android:layout_height="wrap_content"
-	        android:orientation="horizontal"
-	        android:paddingTop="@dimen/activity_mid_margin" >
+	        android:layout_marginTop="@dimen/activity_mid_margin" >
 	        
 	        <Button 
 	            android:layout_width="wrap_content"
 	            android:layout_height="wrap_content"
+	            android:layout_centerInParent="true"
+	            android:layout_alignParentLeft="true"
 	            android:text="@string/instructions_button" />
 	        
 	        <TextView
 	            android:id="@+id/max_textview"
-	            android:layout_width="match_parent"
+	            android:layout_width="wrap_content"
 	            android:layout_height="wrap_content"
-	            android:gravity="right" />
+	            android:layout_centerInParent="true"
+	            android:layout_alignParentRight="true" />
 	        
-	    </LinearLayout>
+	    </RelativeLayout>
 	
 	</LinearLayout>
 </ScrollView>
