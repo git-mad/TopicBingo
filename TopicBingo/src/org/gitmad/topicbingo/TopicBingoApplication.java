@@ -1,7 +1,6 @@
 package org.gitmad.topicbingo;
 
 import android.app.Application;
-import android.test.ApplicationTestCase;
 import org.gitmad.topicbingo.model.DataModel;
 
 /**

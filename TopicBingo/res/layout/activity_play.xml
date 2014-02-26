@@ -1,48 +1,48 @@
-<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
 	xmlns:tools="http://schemas.android.com/tools"
 	android:layout_width="match_parent"
 	android:layout_height="match_parent"
-	android:orientation="vertical"
+	android:paddingBottom="@dimen/activity_bottom_margin"
+	android:paddingLeft="@dimen/activity_horizontal_margin"
+	android:paddingRight="@dimen/activity_horizontal_margin"
+	android:paddingTop="@dimen/activity_top_margin"
 	tools:context=".PlayActivity" >
-	<LinearLayout
-		android:layout_width="match_parent"
-		android:layout_height="wrap_content"
-		android:paddingBottom="@dimen/activity_bottom_margin"
-		android:paddingLeft="@dimen/activity_horizontal_margin"
-		android:paddingRight="@dimen/activity_horizontal_margin"
-		android:paddingTop="@dimen/activity_top_margin"
-		android:orientation="vertical" >
 
-	    <!-- Topics -->
-		<org.gitmad.topicbingo.view.ExpandedListView
-	        android:id="@+id/topics_list"
-	        android:layout_width="match_parent"
-	        android:layout_height="wrap_content"
-	        android:gravity="center"
-	        android:divider="@android:color/transparent"
-	        android:dividerHeight="0dp"
-	        android:cacheColorHint="#00000000"
-	        android:scrollbars="none"/>
+    <!-- Topics -->
+	<ListView
+        android:id="@+id/topics_list"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:gravity="center"
+        android:divider="@android:color/transparent"
+        android:dividerHeight="0dp"
+        android:cacheColorHint="@android:color/transparent"
+        android:scrollbars="none"
+        android:listSelector="@android:color/transparent"
+        android:choiceMode="singleChoice"/>
 
-		<!-- Bottom bar -->
-	    <LinearLayout
-	        android:layout_width="match_parent"
-	        android:layout_height="wrap_content"
-	        android:orientation="horizontal"
-	        android:paddingTop="@dimen/activity_mid_margin" >
-	        
-	        <Button 
-	            android:layout_width="wrap_content"
-	            android:layout_height="wrap_content"
-	            android:text="@string/instructions_button" />
-	        
-	        <TextView 
-	            android:layout_width="match_parent"
-	            android:layout_height="wrap_content"
-	            android:gravity="right"
-	            android:text="@string/max" />
-	        
-	    </LinearLayout>
-	
-	</LinearLayout>
-</ScrollView>
+	<!-- Bottom bar -->
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/activity_mid_margin"
+        android:layout_alignParentBottom="true" >
+        
+        <Button 
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:layout_alignParentLeft="true"
+            android:text="@string/instructions_button" />
+        
+        <TextView
+            android:id="@+id/max_textview"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:layout_alignParentRight="true" />
+        
+    </RelativeLayout>
+
+</RelativeLayout>

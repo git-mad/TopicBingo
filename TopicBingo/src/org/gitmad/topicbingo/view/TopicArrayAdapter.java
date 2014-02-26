@@ -6,9 +6,9 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.TextView;
+
 import org.gitmad.topicbingo.R;
 import org.gitmad.topicbingo.model.Topic;
-
 
 import java.util.List;
 
@@ -19,21 +19,31 @@ public class TopicArrayAdapter extends ArrayAdapter<Topic>
 {
     private final List<Topic> topics;
     private final Context context;
-    private final View.OnClickListener textListener;
-    public TopicArrayAdapter(Context context, List<Topic> topics, View.OnClickListener textListener)
+    public TopicArrayAdapter(Context context, List<Topic> topics)
     {
         super(context, R.layout.topics_list_item, topics);
         this.topics=topics;
         this.context=context;
-        this.textListener= textListener;
     }
     public View getView(int position, View convertView, ViewGroup parent)
     {
-        LayoutInflater inflater = (LayoutInflater)context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-        View rowView = inflater.inflate(R.layout.topics_list_item, parent, false);
-        TextView titleView = (TextView)rowView.findViewById(R.id.titleView);
-        titleView.setText(topics.get(position).getName());
-        titleView.setOnClickListener(textListener);
-        return rowView;
+        View row = convertView;
+        TopicHolder holder = null;
+        if (row == null) {
+        	LayoutInflater inflater = (LayoutInflater)context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+            row = inflater.inflate(R.layout.topics_list_item, parent, false);
+            holder = new TopicHolder();
+            holder.topicName = (TextView) row.findViewById(R.id.titleView);
+            row.setTag(holder);
+        } else {
+            holder = (TopicHolder) row.getTag();
+        }
+        Topic topic = topics.get(position);
+        holder.topicName.setText(topic.getName());
+        return row;
+    }
+
+    private static class TopicHolder {
+    	private TextView topicName;
     }
 }
