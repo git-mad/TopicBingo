@@ -20,9 +20,9 @@ public class PlayActivity extends Activity {
 	private TopicArrayAdapter mTopicsAdapter;
 	private ListView mTopicsList;
 	private TextView mMaxView;
-    private DataModel model;
+    private DataModel mModel;
 	private int mNumTopics;
-	private int currentCheckedTopicIndex;
+	private int mCurrentCheckedTopicIndex;
 
 	private OnItemClickListener onItemClickListener = new OnItemClickListener() {
 		@Override
@@ -32,12 +32,12 @@ public class PlayActivity extends Activity {
 	        mMaxView.setText(getString(R.string.max, position + 1, mNumTopics));
 	    	Toast.makeText(PlayActivity.this, titleView.getText().toString(),
 	    			Toast.LENGTH_SHORT).show();
-	    	if (currentCheckedTopicIndex >= 0 && currentCheckedTopicIndex < DataModel.NUM_TOPICS) {
-	    		((Topic) arg0.getItemAtPosition(currentCheckedTopicIndex)).setChecked(false);
+	    	if (mCurrentCheckedTopicIndex >= 0 && mCurrentCheckedTopicIndex < mNumTopics) {
+	    		((Topic) arg0.getItemAtPosition(mCurrentCheckedTopicIndex)).setChecked(false);
 	    	}
 	    	((Topic) arg0.getItemAtPosition(position)).setChecked(true);
 	    	mTopicsAdapter.notifyDataSetChanged();
-	    	currentCheckedTopicIndex = position;
+	    	mCurrentCheckedTopicIndex = position;
 		}
 	};
 
@@ -45,14 +45,13 @@ public class PlayActivity extends Activity {
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_play);
-		currentCheckedTopicIndex = -1;
-        model = ((TopicBingoApplication)getApplication()).getModel();
+		mCurrentCheckedTopicIndex = -1;
+        mModel = ((TopicBingoApplication)getApplication()).getModel();
         mMaxView = (TextView) findViewById(R.id.max_textview);
-        mNumTopics = model.getCurrentTopics().size();
+        mNumTopics = mModel.getCurrentTopics().size();
         mMaxView.setText(getString(R.string.max, 0, mNumTopics));
 		mTopicsList = (ListView) findViewById(R.id.topics_list);
-		mTopicsAdapter = new TopicArrayAdapter(this,
-      	        model.getCurrentTopics());
+		mTopicsAdapter = new TopicArrayAdapter(this, mModel.getCurrentTopics());
 		mTopicsList.setAdapter(mTopicsAdapter);
 		mTopicsList.setOnItemClickListener(onItemClickListener);
     }

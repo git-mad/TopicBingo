@@ -12,7 +12,7 @@ import java.util.Random;
  */
 public class DataModel
 {
-	public static final int NUM_TOPICS = 5;
+	private static final int NUM_TOPICS = 5;
     private Context context;
     private List<Topic> allTopics;
     private List<Topic> currentTopics;
