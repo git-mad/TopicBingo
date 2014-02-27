@@ -91,13 +91,13 @@ public class PlayActivity extends Activity {
 	}
 
 	public void randomizeTopics(View v) {
-		mModel.randomizeTopics();
 		if (mCurrentCheckedTopicIndex >= 0 && mCurrentCheckedTopicIndex < mNumTopics) {
     		(mTopicsAdapter.getItem(mCurrentCheckedTopicIndex)).setChecked(false);
     	}
 		mTopicsList.setItemChecked(mCurrentCheckedTopicIndex, false);
         mMaxView.setText(getString(R.string.max, 0, mNumTopics));
 		mCurrentCheckedTopicIndex = -1;
+		mModel.randomizeTopics();
 		mTopicsAdapter.notifyDataSetChanged();
 	}
 

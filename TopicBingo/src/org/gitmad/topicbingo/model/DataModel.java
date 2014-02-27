@@ -30,10 +30,6 @@ public class DataModel
        }
     }
 
-    public void setTopics(List<Topic> topics) {
-    	currentTopics = topics;
-    }
-
     public void randomizeTopics()
     {
         currentTopics.clear();
