@@ -1,13 +1,20 @@
 package org.gitmad.topicbingo;
 
 import android.app.Application;
+import android.preference.PreferenceManager;
+import android.util.Log;
+
 import org.gitmad.topicbingo.model.DataModel;
+import com.google.gson.Gson;
+import com.google.gson.reflect.TypeToken;
 
 /**
  * Created by Alex on 2/24/14.
  */
 public class TopicBingoApplication extends Application
 {
+	public static final String SAVED_TOPICS
+			= "org.gitmad.topicsbingo.TopicBingoApplication.SAVED_TOPICS";
     private static DataModel model;
 
 
@@ -19,6 +26,13 @@ public class TopicBingoApplication extends Application
     @Override
     public void onCreate() {
         super.onCreate();
-        model = new DataModel(this);
+        String json = PreferenceManager.getDefaultSharedPreferences(this)
+				.getString(SAVED_TOPICS, "");
+        Log.d("ERIC_33", "here");
+		Gson gson = new Gson();
+		model = gson.fromJson(json, new TypeToken<DataModel>(){}.getType());
+		if (model == null) {
+			model = new DataModel(getResources().getStringArray(R.array.topics_array));
+		}
     }
 }

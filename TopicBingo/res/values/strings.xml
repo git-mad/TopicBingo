@@ -3,6 +3,7 @@
 
 	<string name="app_name">Topic Bingo</string>
 	<string name="instructions_button">Instructions</string>
+	<string name="randomize_button">Randomize</string>
 
 	<!-- Topics -->
     <string-array name="topics_array">

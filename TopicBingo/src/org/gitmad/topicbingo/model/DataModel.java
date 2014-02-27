@@ -1,8 +1,5 @@
 package org.gitmad.topicbingo.model;
 
-import android.content.Context;
-import org.gitmad.topicbingo.R;
-
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
@@ -13,25 +10,30 @@ import java.util.Random;
 public class DataModel
 {
 	private static final int NUM_TOPICS = 5;
-    private Context context;
+    private String[] topics;
     private List<Topic> allTopics;
     private List<Topic> currentTopics;
 
-    public DataModel(Context context)
+    public DataModel(String[] topics)
     {
         allTopics = new ArrayList<Topic>();
         currentTopics = new ArrayList<Topic>();
-        this.context = context;
+        this.topics = topics;
         loadTopics();
         randomizeTopics();
     }
 
     private void loadTopics()
     {
-       String[] topics = context.getResources().getStringArray(R.array.topics_array);
-       for(String s:topics)
-           allTopics.add(new Topic(s));
+       for(String s:topics) {
+    	   allTopics.add(new Topic(s));
+       }
     }
+
+    public void setTopics(List<Topic> topics) {
+    	currentTopics = topics;
+    }
+
     public void randomizeTopics()
     {
         currentTopics.clear();
@@ -43,6 +45,7 @@ public class DataModel
                 currentTopics.add(t);
         }
     }
+
     public List<Topic> getCurrentTopics()
     {
         return currentTopics;

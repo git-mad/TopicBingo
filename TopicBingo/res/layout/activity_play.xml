@@ -28,21 +28,29 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="@dimen/activity_mid_margin"
         android:layout_alignParentBottom="true" >
-        
-        <Button 
+
+        <Button
+            android:id="@+id/instructions_button"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_centerInParent="true"
             android:layout_alignParentLeft="true"
             android:text="@string/instructions_button" />
-        
+
+        <Button 
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_toRightOf="@id/instructions_button"
+            android:text="@string/randomize_button"
+            android:onClick="randomizeTopics" />
+
         <TextView
             android:id="@+id/max_textview"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_centerInParent="true"
             android:layout_alignParentRight="true" />
-        
+
     </RelativeLayout>
 
 </RelativeLayout>

@@ -1,6 +1,7 @@
 package org.gitmad.topicbingo.view;
 
 import android.os.Bundle;
+import android.preference.PreferenceManager;
 import android.app.Activity;
 import android.view.Menu;
 import android.view.View;
@@ -14,6 +15,8 @@ import org.gitmad.topicbingo.R;
 import org.gitmad.topicbingo.TopicBingoApplication;
 import org.gitmad.topicbingo.model.DataModel;
 import org.gitmad.topicbingo.model.Topic;
+
+import com.google.gson.Gson;
 
 public class PlayActivity extends Activity {
 
@@ -45,15 +48,10 @@ public class PlayActivity extends Activity {
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_play);
-		mCurrentCheckedTopicIndex = -1;
         mModel = ((TopicBingoApplication)getApplication()).getModel();
         mMaxView = (TextView) findViewById(R.id.max_textview);
-        mNumTopics = mModel.getCurrentTopics().size();
-        mMaxView.setText(getString(R.string.max, 0, mNumTopics));
 		mTopicsList = (ListView) findViewById(R.id.topics_list);
-		mTopicsAdapter = new TopicArrayAdapter(this, mModel.getCurrentTopics());
-		mTopicsList.setAdapter(mTopicsAdapter);
-		mTopicsList.setOnItemClickListener(onItemClickListener);
+		initialize();
     }
 
 	@Override
@@ -61,6 +59,46 @@ public class PlayActivity extends Activity {
 		// Inflate the menu; this adds items to the action bar if it is present.
 		getMenuInflater().inflate(R.menu.play, menu);
 		return true;
+	}
+
+	@Override
+	protected void onPause() {
+		super.onPause();
+		Gson gson = new Gson();
+		String json = gson.toJson(mModel);
+		PreferenceManager.getDefaultSharedPreferences(this)
+				.edit().putString(TopicBingoApplication.SAVED_TOPICS, json).commit();
+	}
+
+	private void initialize() {
+		mCurrentCheckedTopicIndex = -1;
+		int i = 0;
+		for (Topic topic : mModel.getCurrentTopics()) {
+			if (topic.isChecked()) {
+				mCurrentCheckedTopicIndex = i;
+				break;
+			}
+			i++;
+		}
+        mNumTopics = mModel.getCurrentTopics().size();
+        mMaxView.setText(getString(R.string.max, mCurrentCheckedTopicIndex + 1, mNumTopics));
+		mTopicsAdapter = new TopicArrayAdapter(this, mModel.getCurrentTopics());
+		mTopicsList.setAdapter(mTopicsAdapter);
+		mTopicsList.setOnItemClickListener(onItemClickListener);
+		if (mCurrentCheckedTopicIndex >= 0 && mCurrentCheckedTopicIndex < mNumTopics) {
+			mTopicsList.setItemChecked(mCurrentCheckedTopicIndex, true);
+		}
+	}
+
+	public void randomizeTopics(View v) {
+		mModel.randomizeTopics();
+		if (mCurrentCheckedTopicIndex >= 0 && mCurrentCheckedTopicIndex < mNumTopics) {
+    		(mTopicsAdapter.getItem(mCurrentCheckedTopicIndex)).setChecked(false);
+    	}
+		mTopicsList.setItemChecked(mCurrentCheckedTopicIndex, false);
+        mMaxView.setText(getString(R.string.max, 0, mNumTopics));
+		mCurrentCheckedTopicIndex = -1;
+		mTopicsAdapter.notifyDataSetChanged();
 	}
 
 }
