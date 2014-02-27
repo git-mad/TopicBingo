@@ -48,9 +48,9 @@ public class PlayActivity extends Activity {
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_play);
-        mModel = ((TopicBingoApplication)getApplication()).getModel();
         mMaxView = (TextView) findViewById(R.id.max_textview);
 		mTopicsList = (ListView) findViewById(R.id.topics_list);
+        mModel = ((TopicBingoApplication)getApplication()).getModel();
 		initialize();
     }
 
