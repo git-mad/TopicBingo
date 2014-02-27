@@ -59,6 +59,7 @@
 	        android:layout_width="match_parent"
 	        android:layout_height="wrap_content"
 	        android:paddingTop="@dimen/activity_top_margin"
+	        android:clipToPadding="false"
 	        android:layout_centerInParent="true"
 	        android:gravity="center"
 	        android:divider="@android:color/transparent"
@@ -66,8 +67,7 @@
 	        android:cacheColorHint="@android:color/transparent"
 	        android:scrollbars="none"
 	        android:listSelector="@android:color/transparent"
-	        android:choiceMode="singleChoice"
-	        android:clipToPadding="false" />
+	        android:choiceMode="singleChoice" />
 
 	</RelativeLayout>
 
