@@ -35,6 +35,8 @@ public class PlayActivity extends Activity {
                     Topic t = model.getTopic(tv.getText()+"");
                     t.setChecked(!t.isChecked()); // Flip whether checked or not
                     tv.setTextColor(t.isChecked() ? Color.GREEN : Color.BLACK); // Toggle text color between Green and Black
+                    TextView count = (TextView) findViewById(R.id.count);
+                    count.setText(model.getCount());
                 }
             }
         }));

@@ -51,6 +51,15 @@ public class DataModel
     {
         return currentTopics;
     }
+    public String getCount() {
+    	int i = 0;
+    	for (Topic t : currentTopics) {
+    		if (t.isChecked()) {
+    			i++;
+    		}
+    	}
+    	return i+"/"+currentTopics.size();
+    }
 
 	public Topic getTopic(String string) {
 		Topic out = null;
