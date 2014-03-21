@@ -32,13 +32,12 @@ public class PlayActivity extends Activity {
                 if(v.getClass()==TextView.class)
                 {
                     TextView tv = (TextView)v;
-                    tv.setTextColor(Color.GREEN);
+                    Topic t = model.getTopic(tv.getText()+"");
+                    t.setChecked(!t.isChecked()); // Flip whether checked or not
+                    tv.setTextColor(t.isChecked() ? Color.GREEN : Color.BLACK); // Toggle text color between Green and Black
                 }
             }
         }));
-
-
-
     }
 
 	@Override
@@ -47,5 +46,4 @@ public class PlayActivity extends Activity {
 		getMenuInflater().inflate(R.menu.play, menu);
 		return true;
 	}
-
 }

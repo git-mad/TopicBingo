@@ -51,4 +51,11 @@ public class DataModel
     {
         return currentTopics;
     }
+
+	public Topic getTopic(String string) {
+		Topic out = null;
+		for (Topic t : currentTopics)
+			if (t.isTopic(string)) { out = t; }
+		return out;
+	}
 }
