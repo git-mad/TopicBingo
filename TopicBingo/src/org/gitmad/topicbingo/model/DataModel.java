@@ -1,6 +1,8 @@
 package org.gitmad.topicbingo.model;
 
 import android.content.Context;
+import android.widget.Toast;
+
 import org.gitmad.topicbingo.R;
 
 import java.util.ArrayList;
@@ -41,6 +43,9 @@ public class DataModel
             if(!currentTopics.contains(t))
                 currentTopics.add(t);
         }
+		Toast toast = Toast.makeText(context, "Topics Loaded",
+				Toast.LENGTH_SHORT);
+		toast.show();
     }
     public List<Topic> getCurrentTopics()
     {
