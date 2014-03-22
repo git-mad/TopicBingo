@@ -41,5 +41,7 @@
     </string-array>
 
     <string name="max">0/5</string>
+    <string name="win_button">Win</string>
+    <string name="loss_button">Loss</string>
 
 </resources>

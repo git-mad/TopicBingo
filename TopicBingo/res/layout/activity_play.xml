@@ -1,49 +1,73 @@
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
-	xmlns:tools="http://schemas.android.com/tools"
-	android:layout_width="match_parent"
-	android:layout_height="match_parent"
-	android:orientation="vertical"
-	tools:context=".PlayActivity" >
-	<LinearLayout
-		android:layout_width="match_parent"
-		android:layout_height="wrap_content"
-		android:paddingBottom="@dimen/activity_bottom_margin"
-		android:paddingLeft="@dimen/activity_horizontal_margin"
-		android:paddingRight="@dimen/activity_horizontal_margin"
-		android:paddingTop="@dimen/activity_top_margin"
-		android:orientation="vertical" >
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".PlayActivity" >
 
-	    <!-- Topics -->
-		<org.gitmad.topicbingo.view.ExpandedListView
-	        android:id="@+id/topics_list"
-	        android:layout_width="match_parent"
-	        android:layout_height="wrap_content"
-	        android:gravity="center"
-	        android:divider="@android:color/transparent"
-	        android:dividerHeight="0dp"
-	        android:cacheColorHint="#00000000"
-	        android:scrollbars="none"/>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:paddingBottom="@dimen/activity_bottom_margin"
+        android:paddingLeft="@dimen/activity_horizontal_margin"
+        android:paddingRight="@dimen/activity_horizontal_margin"
+        android:paddingTop="@dimen/activity_top_margin" >
+        
+        <!-- Topics -->
 
-		<!-- Bottom bar -->
-	    <LinearLayout
-	        android:layout_width="match_parent"
-	        android:layout_height="wrap_content"
-	        android:orientation="horizontal"
-	        android:paddingTop="@dimen/activity_mid_margin" >
-	        
-	        <Button 
-	            android:layout_width="wrap_content"
-	            android:layout_height="wrap_content"
-	            android:text="@string/instructions_button" />
-	        
-	        <TextView 
-	            android:id="@+id/count"
-	            android:layout_width="match_parent"
-	            android:layout_height="wrap_content"
-	            android:gravity="right"
-	            android:text="@string/max" />
-	        
-	    </LinearLayout>
-	
-	</LinearLayout>
+        <org.gitmad.topicbingo.view.ExpandedListView
+            android:id="@+id/topics_list"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:cacheColorHint="#00000000"
+            android:divider="@android:color/transparent"
+            android:dividerHeight="0dp"
+            android:gravity="center"
+            android:scrollbars="none" />
+
+        <!-- Temp Button Bar Notification Demo -->
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:paddingTop="@dimen/activity_mid_margin" >
+
+            <Button
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:onClick="notifyWin"
+                android:text="@string/win_button" />
+
+            <Button
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:onClick="notifyLoss"
+                android:text="@string/loss_button" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:paddingTop="@dimen/activity_mid_margin" 
+            android:paddingBottom="15dp">
+
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/instructions_button" />
+
+            <TextView
+                android:id="@+id/count"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="right"
+                android:text="@string/max" />
+        </LinearLayout>
+    </LinearLayout>
+
 </ScrollView>

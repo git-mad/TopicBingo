@@ -3,6 +3,7 @@ package org.gitmad.topicbingo.view;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.app.Activity;
+import android.support.v4.app.NotificationCompat;
 import android.view.Menu;
 import android.view.View;
 import android.widget.ArrayAdapter;
@@ -47,5 +48,14 @@ public class PlayActivity extends Activity {
 		// Inflate the menu; this adds items to the action bar if it is present.
 		getMenuInflater().inflate(R.menu.play, menu);
 		return true;
+	}
+	
+	public void notifyWin(View v) {
+		((TopicBingoApplication)getApplication()).sendNotification(TopicBingoApplication.notificationType.NOTIFY_WIN);
+	}
+	
+
+	public void notifyLoss(View v) {
+		((TopicBingoApplication)getApplication()).sendNotification(TopicBingoApplication.notificationType.NOTIFY_LOSE);
 	}
 }
