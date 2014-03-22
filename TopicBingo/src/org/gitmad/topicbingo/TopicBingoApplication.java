@@ -50,7 +50,7 @@ public class TopicBingoApplication extends Application {
 		
 		if (mNotifList.isEmpty()) {
 			mBuilder = new NotificationCompat.Builder(this); // TODO this should be inbox style so you can stack wins/losses
-			mBuilder.setSmallIcon(R.drawable.topic_bingo_logo);
+			mBuilder.setSmallIcon(R.drawable.ic_topic_bingo_logo);
 			mBuilder.setContentTitle("Game over"); // This handles most cases, for others, we can override it
 			mBuilder.setAutoCancel(true);
 			mNotifList.add(mBuilder);
