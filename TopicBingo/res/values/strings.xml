@@ -63,9 +63,15 @@
 
     </string-array>
 
-    <string name="max">0/5</string>
+    <string name="progress">0/5</string>
     <string name="win_button">Win</string>
     <string name="loss_button">Loss</string>
     <string name="randomize_button">Randomize</string>
+    <string name="game_over">Game Over</string>
+    <string name="victory_text">"Happy day! you've won!"</string>
+    <string name="loss_text">Curses, foiled again!</string>
+    <string name="game_outcome_notification_title">Game Outcomes</string>
+    <string name="topics_loaded_toast">Topics Loaded</string>
+    
 
 </resources>

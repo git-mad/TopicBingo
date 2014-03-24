@@ -43,7 +43,7 @@ public class DataModel
             if(!currentTopics.contains(t))
                 currentTopics.add(t);
         }
-		Toast toast = Toast.makeText(context, "Topics Loaded",
+		Toast toast = Toast.makeText(context, R.string.topics_loaded_toast+"",
 				Toast.LENGTH_SHORT);
 		toast.show();
     }

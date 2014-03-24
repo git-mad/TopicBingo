@@ -43,15 +43,15 @@ public class TopicBingoApplication extends Application {
 	 * This allows the sending and tracking of notifications for the application, to allow for updating
 	 * @param type
 	 */
-	public void sendNotification(notificationType type) { // TODO Make two buttons to trigger notifications
+	public void sendNotification(notificationType type) {
 		
 		int nId = 0;
 		NotificationCompat.Builder mBuilder = null;
 		
 		if (mNotifList.isEmpty()) {
-			mBuilder = new NotificationCompat.Builder(this); // TODO this should be inbox style so you can stack wins/losses
+			mBuilder = new NotificationCompat.Builder(this);
 			mBuilder.setSmallIcon(R.drawable.ic_topic_bingo_logo);
-			mBuilder.setContentTitle("Game over"); // This handles most cases, for others, we can override it
+			mBuilder.setContentTitle(R.string.game_over +""); // This handles most cases, for others, we can override it
 			mBuilder.setAutoCancel(true);
 			mNotifList.add(mBuilder);
 
@@ -63,16 +63,18 @@ public class TopicBingoApplication extends Application {
 		
 		switch (type) {
 		case NOTIFY_WIN:
-			mResults.addWin("Happy day! you've won!");
-			mBuilder.setContentText("Happy day! you've won!");
-			mBuilder.setTicker("Happy day! you've won!");
+			String wText = R.string.victory_text+""; // Made temp variable to avoid looking up string many times
+			mResults.addWin(wText);
+			mBuilder.setContentText(wText);
+			mBuilder.setTicker(wText);
 			mBuilder.setNumber(mResults.getCount());
 //			mBuilder.setSmallIcon(R.drawable.crown); // doesn't seem to do what is expected
 			break;
 		case NOTIFY_LOSE:
-			mResults.addLoss("Curses, foiled again!");
-			mBuilder.setContentText("Curses, foiled again!");
-			mBuilder.setTicker("Curses, foiled again!");
+			String lText = R.string.loss_text+""; // same slight optimization
+			mResults.addLoss(lText);
+			mBuilder.setContentText(lText);
+			mBuilder.setTicker(lText);
 			mBuilder.setNumber(mResults.getCount());
 //			mBuilder.setSmallIcon(android.R.drawable.ic_menu_close_clear_cancel); // doesn't seem to do what is expected
 			break;
@@ -81,7 +83,7 @@ public class TopicBingoApplication extends Application {
 		// If there is more than one game being reported, add big style too
 		if (mResults.getCount() > 1) {
 			NotificationCompat.InboxStyle inboxStyle = new NotificationCompat.InboxStyle();
-			inboxStyle.setBigContentTitle("Game Outcomes");
+			inboxStyle.setBigContentTitle(R.string.game_outcome_notification_title+"");
 			for (String s : mResults.getEvents()) {
 				inboxStyle.addLine(s);
 			}
@@ -121,7 +123,7 @@ public class TopicBingoApplication extends Application {
 			losses++;
 			results.add(res);
 		}
-		public void clearAll() { // TODO call when notification is opened
+		public void clearAll() { // TODO call when notification is opened / dismissed
 			wins = 0; losses = 0;
 			results.clear();
 		}

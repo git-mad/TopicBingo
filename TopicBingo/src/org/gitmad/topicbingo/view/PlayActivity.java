@@ -65,7 +65,6 @@ public class PlayActivity extends Activity {
 	}
 
 	public void RandomizeTopics(View v) {
-		// TODO randomize topics here
 		model.randomizeTopics();
 		mAdapter.notifyDataSetChanged();
 		TextView count = (TextView) findViewById(R.id.count);
