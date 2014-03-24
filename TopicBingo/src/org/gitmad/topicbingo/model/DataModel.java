@@ -43,7 +43,7 @@ public class DataModel
             if(!currentTopics.contains(t))
                 currentTopics.add(t);
         }
-		Toast toast = Toast.makeText(context, R.string.topics_loaded_toast+"",
+		Toast toast = Toast.makeText(context, context.getResources().getString(R.string.topics_loaded_toast),
 				Toast.LENGTH_SHORT);
 		toast.show();
     }
@@ -66,5 +66,9 @@ public class DataModel
 		for (Topic t : currentTopics)
 			if (t.isTopic(string)) { out = t; }
 		return out;
+	}
+
+	public Context getContext() {
+		return context;
 	}
 }

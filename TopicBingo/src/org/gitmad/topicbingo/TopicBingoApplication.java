@@ -47,11 +47,12 @@ public class TopicBingoApplication extends Application {
 		
 		int nId = 0;
 		NotificationCompat.Builder mBuilder = null;
+		Context c = model.getContext();
 		
 		if (mNotifList.isEmpty()) {
 			mBuilder = new NotificationCompat.Builder(this);
 			mBuilder.setSmallIcon(R.drawable.ic_topic_bingo_logo);
-			mBuilder.setContentTitle(R.string.game_over +""); // This handles most cases, for others, we can override it
+			mBuilder.setContentTitle(c.getResources().getString(R.string.game_over)); // This handles most cases, for others, we can override it
 			mBuilder.setAutoCancel(true);
 			mNotifList.add(mBuilder);
 
@@ -63,7 +64,7 @@ public class TopicBingoApplication extends Application {
 		
 		switch (type) {
 		case NOTIFY_WIN:
-			String wText = R.string.victory_text+""; // Made temp variable to avoid looking up string many times
+			String wText = c.getResources().getString(R.string.victory_text); // Made temp variable to avoid looking up string many times
 			mResults.addWin(wText);
 			mBuilder.setContentText(wText);
 			mBuilder.setTicker(wText);
@@ -71,7 +72,7 @@ public class TopicBingoApplication extends Application {
 //			mBuilder.setSmallIcon(R.drawable.crown); // doesn't seem to do what is expected
 			break;
 		case NOTIFY_LOSE:
-			String lText = R.string.loss_text+""; // same slight optimization
+			String lText = c.getResources().getString(R.string.loss_text); // same slight optimization
 			mResults.addLoss(lText);
 			mBuilder.setContentText(lText);
 			mBuilder.setTicker(lText);
@@ -83,7 +84,7 @@ public class TopicBingoApplication extends Application {
 		// If there is more than one game being reported, add big style too
 		if (mResults.getCount() > 1) {
 			NotificationCompat.InboxStyle inboxStyle = new NotificationCompat.InboxStyle();
-			inboxStyle.setBigContentTitle(R.string.game_outcome_notification_title+"");
+			inboxStyle.setBigContentTitle(c.getResources().getString(R.string.game_outcome_notification_title));
 			for (String s : mResults.getEvents()) {
 				inboxStyle.addLine(s);
 			}
