@@ -10,7 +10,7 @@ public class Topic
 
     public Topic(String name) {
         this.name = name;
-        checked=false;
+        setChecked(false);
     }
 
     public String getName() {
@@ -25,4 +25,19 @@ public class Topic
     {
         return name;
     }
+
+	public boolean isChecked() {
+		return checked;
+	}
+
+	public void setChecked(boolean checked) {
+		this.checked = checked;
+	}
+
+	public boolean isTopic(String string) {
+		if (this.name.compareToIgnoreCase(string)==0) {
+			return true;
+		}
+		return false;
+	}
 }
