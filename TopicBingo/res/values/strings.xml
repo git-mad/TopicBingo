@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<resources>
+<resources xmlns:android="http://schemas.android.com/apk/res/android">
 
 	<string name="app_name">Topic Bingo</string>
 	<string name="instructions_button">Instructions</string>
@@ -58,9 +58,6 @@
         <item>Cheddar Cheese</item>
         <item>Wok</item>
         <item>Montezuma\'s Revenge</item>
-
-
-
     </string-array>
 
     <string name="progress">0/5</string>
@@ -72,6 +69,7 @@
     <string name="loss_text">Curses, foiled again!</string>
     <string name="game_outcome_notification_title">Game Outcomes</string>
     <string name="topics_loaded_toast">Topics Loaded</string>
+    <string name="time_button_text">Enter Time</string>
     
 
 </resources>

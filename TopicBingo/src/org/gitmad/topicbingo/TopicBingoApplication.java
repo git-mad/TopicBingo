@@ -23,7 +23,7 @@ public class TopicBingoApplication extends Application {
 	// list to allow for multiple notifications to be tracked (index is id - 1)
 	private NotificationManager mNotificationManager;
 	private Results mResults;
-	public static enum notificationType {NOTIFY_WIN, NOTIFY_LOSE};
+	public static enum notificationType {NOTIFY_WIN, NOTIFY_LOSE, NOTIFY_TIMEUP};
 	
 	
 	public DataModel getModel() {
